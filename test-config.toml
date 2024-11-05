@@ -1,0 +1,32 @@
+[fig]
+ylim = [0, 1]
+
+[data.keys]
+x = "x"
+y = "y"
+hue = "label"
+# style = "label"
+# size = "label"
+units = "seed"
+
+[data.xagg]
+agg = "last"
+xpoints = 200
+# xstep = 100
+
+[plot]
+# name = "individual"
+name = "aggregate"
+
+[plot.kwargs]
+# hue_order = [
+#     "Method-2",
+#     "Method-1",
+# ]
+
+[plots.individual.kwargs]
+alpha = 0.1
+
+[plots.aggregate.kwargs]
+estimator = "median"
+errorbar = ["pi", 100]

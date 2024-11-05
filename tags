@@ -1,0 +1,66 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+.DEFAULT_GOAL	Makefile	/^.DEFAULT_GOAL := help$/;"	m
+BROWSER	Makefile	/^BROWSER := python -c "$$BROWSER_PYSCRIPT"$/;"	m
+BROWSER_PYSCRIPT	Makefile	/^define BROWSER_PYSCRIPT$/;"	m
+BUILDDIR	docs/Makefile	/^BUILDDIR      = _build$/;"	m
+BUILDDIR	docs/make.bat	/^set BUILDDIR=_build$/;"	v
+Config	src/plottk/config.py	/^class Config(BaseModel):$/;"	c
+DataConfig	src/plottk/config.py	/^class DataConfig(BaseModel):$/;"	c
+DataKeyConfig	src/plottk/config.py	/^class DataKeyConfig(BaseModel):$/;"	c
+DataXAggConfig	src/plottk/config.py	/^class DataXAggConfig(BaseModel):$/;"	c
+FigConfig	src/plottk/config.py	/^class FigConfig(BaseModel):$/;"	c
+PRINT_HELP_PYSCRIPT	Makefile	/^define PRINT_HELP_PYSCRIPT$/;"	m
+PlotConfig	src/plottk/config.py	/^class PlotConfig(BaseModel):$/;"	c
+PlotOptionConfig	src/plottk/config.py	/^class PlotOptionConfig(BaseModel):$/;"	c
+SOURCEDIR	docs/Makefile	/^SOURCEDIR     = .$/;"	m
+SOURCEDIR	docs/make.bat	/^set SOURCEDIR=.$/;"	v
+SPHINXBUILD	docs/Makefile	/^SPHINXBUILD   = python -msphinx$/;"	m
+SPHINXBUILD	docs/make.bat	/^	set SPHINXBUILD=python -msphinx$/;"	v
+SPHINXOPTS	docs/Makefile	/^SPHINXOPTS    =$/;"	m
+SPHINXPROJ	docs/Makefile	/^SPHINXPROJ    = plottk$/;"	m
+SPHINXPROJ	docs/make.bat	/^set SPHINXPROJ=plottk$/;"	v
+T	src/plottk/utils.py	/^T = TypeVar("T")$/;"	v
+__email__	src/plottk/__init__.py	/^__email__ = "andrea.baisero@gmail.com"$/;"	v
+__version__	src/plottk/__init__.py	/^__version__ = "0.1.0"$/;"	v
+aggregate_x	src/plottk/plotting.py	/^def aggregate_x(data: pd.DataFrame, config: DataConfig) -> pd.DataFrame:$/;"	f
+app	src/plottk/cli.py	/^app = Typer()$/;"	v
+author	docs/conf.py	/^author = "Andrea Baisero"$/;"	v
+check_passwords_match	src/plottk/config.py	/^    def check_passwords_match(self) -> Self:$/;"	m	class:DataXAggConfig
+console	src/plottk/cli.py	/^console = Console()$/;"	v
+copyright	docs/conf.py	/^copyright = "2024, Andrea Baisero"$/;"	v
+csv	src/plottk/cli.py	/^def csv($/;"	f
+end	docs/make.bat	/^:end$/;"	l
+exclude_patterns	docs/conf.py	/^exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']$/;"	v
+extensions	docs/conf.py	/^extensions = ['sphinx.ext.autodoc', 'sphinx.ext.viewcode']$/;"	v
+help	docs/make.bat	/^:help$/;"	l
+html_static_path	docs/conf.py	/^html_static_path = ['_static']$/;"	v
+html_theme	docs/conf.py	/^html_theme = 'alabaster'$/;"	v
+htmlhelp_basename	docs/conf.py	/^htmlhelp_basename = 'plottkdoc'$/;"	v
+language	docs/conf.py	/^language = None$/;"	v
+latex_documents	docs/conf.py	/^latex_documents = [$/;"	v
+latex_elements	docs/conf.py	/^latex_elements = {$/;"	v
+load_config	src/plottk/config.py	/^def load_config(filename: str) -> Config:$/;"	f
+main	make-test-data.py	/^def main():$/;"	f
+make_data	make-test-data.py	/^def make_data(name: str, ndata: int, label: str, seed: int) -> pd.DataFrame:$/;"	f
+make_series	make-test-data.py	/^def make_series(name: str, ndata: int) -> np.ndarray:$/;"	f
+man_pages	docs/conf.py	/^man_pages = [$/;"	v
+master_doc	docs/conf.py	/^master_doc = 'index'$/;"	v
+pickle	src/plottk/cli.py	/^def pickle($/;"	f
+plot	src/plottk/plotting.py	/^def plot(data: pd.DataFrame, config: Config, **kwargs) -> Axes:$/;"	f
+process_fig	src/plottk/plotting.py	/^def process_fig(config: FigConfig):$/;"	f
+project	docs/conf.py	/^project = 'plottk'$/;"	v
+pygments_style	docs/conf.py	/^pygments_style = 'sphinx'$/;"	v
+release	docs/conf.py	/^release = plottk.__version__$/;"	v
+remove_duplicates	src/plottk/utils.py	/^def remove_duplicates(values: list[T]) -> list[T]:$/;"	f
+source_suffix	docs/conf.py	/^source_suffix = '.rst'$/;"	v
+templates_path	docs/conf.py	/^templates_path = ['_templates']$/;"	v
+test_load_config	tests/test_plottk.py	/^def test_load_config(filename: str):$/;"	f
+test_plotting	tests/test_plottk.py	/^def test_plotting(filename_config: str, filename_data: str, filename_output: str):$/;"	f
+texinfo_documents	docs/conf.py	/^texinfo_documents = [$/;"	v
+todo_include_todos	docs/conf.py	/^todo_include_todos = False$/;"	v
+version	docs/conf.py	/^version = plottk.__version__$/;"	v
