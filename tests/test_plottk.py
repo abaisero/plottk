@@ -1,8 +1,10 @@
-import pytest
+from typing import cast
+
 import pandas as pd
+import pytest
 
 from plottk.config import load_config
-from plottk.plotting import plot, aggregate_x
+from plottk.plotting import aggregate_x, augment_legend_counts, plot
 
 
 @pytest.mark.parametrize(
@@ -25,6 +27,8 @@ def test_plotting(filename_config: str, filename_data: str, filename_output: str
 
     data = aggregate_x(data, config.data)
     axes = plot(data, config)
+    key = cast(str, config.data.keys.hue)
+    augment_legend_counts(axes, data, key, config.data)
 
     if (figure := axes.get_figure()) is not None:
         figure.savefig(filename_output, bbox_inches="tight")

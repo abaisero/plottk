@@ -1,7 +1,7 @@
+import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sns
 from matplotlib.axes import Axes
-import matplotlib.pyplot as plt
 
 from plottk.config import Config, DataConfig, FigConfig
 from plottk.utils import remove_duplicates
@@ -68,3 +68,28 @@ def aggregate_x(data: pd.DataFrame, config: DataConfig) -> pd.DataFrame:
     data_groupby = data.groupby(groupkeys)
     data_agg = data_groupby[config.keys.y].agg(config.xagg.agg)
     return data_agg.reset_index()
+
+
+def get_counts(data: pd.DataFrame, key: str, config: DataConfig) -> dict[str, int]:
+    return data.groupby(key)[config.keys.units].nunique().to_dict()
+
+
+def augment_legend_counts(
+    axes: Axes,
+    data: pd.DataFrame,
+    key: str,
+    config: DataConfig,
+):
+    counts = get_counts(data, key, config)
+    handles, labels = axes.get_legend_handles_labels()
+
+    def make_label(label: str, counts: dict[str, int]) -> str:
+        try:
+            count = counts[label]
+        except KeyError:
+            return f"{label} (N/A)"
+        else:
+            return f"{label} ({count})"
+
+    labels = [make_label(label, counts) for label in labels]
+    axes.legend(handles=handles, labels=labels)
