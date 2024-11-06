@@ -1,6 +1,9 @@
 [fig]
 ylim = [0, 1]
 
+[fig.x_major_formatter]
+name = "EngFormatter"
+
 [data.keys]
 x = "x"
 y = "y"

@@ -25,6 +25,18 @@ class FigConfig(BaseModel):
     xlim: Optional[tuple[float, float]] = None
     ylim: Optional[tuple[float, float]] = None
 
+    x_minor_formatter: Optional[FormatterConfig] = None
+    x_major_formatter: Optional[FormatterConfig] = None
+
+    y_minor_formatter: Optional[FormatterConfig] = None
+    y_major_formatter: Optional[FormatterConfig] = None
+
+
+class FormatterConfig(BaseModel):
+    name: str
+    args: list = Field(default_factory=list)
+    kwargs: dict = Field(default_factory=dict)
+
 
 class DataConfig(BaseModel):
     keys: DataKeyConfig

@@ -1,9 +1,11 @@
+import matplotlib
 import matplotlib.pyplot as plt
+import matplotlib.ticker
 import pandas as pd
 import seaborn as sns
 from matplotlib.axes import Axes
 
-from plottk.config import Config, DataConfig, FigConfig
+from plottk.config import Config, DataConfig, FigConfig, FormatterConfig
 from plottk.utils import remove_duplicates
 
 sns.set_theme(style="darkgrid")
@@ -32,7 +34,19 @@ def plot(data: pd.DataFrame, config: Config, **kwargs) -> Axes:
     return axes
 
 
+def get_formatter(config: FormatterConfig) -> matplotlib.ticker.Formatter:
+    if config.name == "EngFormatter":
+        return matplotlib.ticker.EngFormatter(*config.args, **config.kwargs)
+
+    if config.name == "PercentFormatter":
+        return matplotlib.ticker.PercentFormatter(*config.args, **config.kwargs)
+
+    raise ValueError(f"Invalid formatter {config.name}")
+
+
 def process_fig(config: FigConfig):
+    axes = plt.gca()
+
     if config.title is not None:
         plt.title(config.title)
 
@@ -41,6 +55,22 @@ def process_fig(config: FigConfig):
 
     if config.ylim is not None:
         plt.ylim(config.ylim)
+
+    if config.x_minor_formatter is not None:
+        formatter = get_formatter(config.x_minor_formatter)
+        axes.xaxis.set_minor_formatter(formatter)
+
+    if config.x_major_formatter is not None:
+        formatter = get_formatter(config.x_major_formatter)
+        axes.xaxis.set_major_formatter(formatter)
+
+    if config.y_minor_formatter is not None:
+        formatter = get_formatter(config.y_minor_formatter)
+        axes.yaxis.set_minor_formatter(formatter)
+
+    if config.y_major_formatter is not None:
+        formatter = get_formatter(config.y_major_formatter)
+        axes.yaxis.set_major_formatter(formatter)
 
 
 def aggregate_x(data: pd.DataFrame, config: DataConfig) -> pd.DataFrame:

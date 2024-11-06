@@ -34,7 +34,7 @@ def make_data(name: str, ndata: int, label: str, seed: int) -> pd.DataFrame:
 
 
 def main():
-    N = 1_000
+    N = 5_000
 
     data = []
     data += [make_data("linear", N, "Algo-A", seed) for seed in range(10)]
