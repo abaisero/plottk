@@ -1,0 +1,70 @@
+project = "abaisero/role-of-state"
+
+[filters]
+"config.env_label" = "heavenhell-4"
+
+[[filters."$or"]]
+"config.algo_label" = "a2c"
+"config.wandb_metagroup_optim" = "(2,0.001,0.001,10)"
+"config.wandb_metagroup_negentropy" = "(0.3,0.03,2_000_000)"
+
+[[filters."$or"]]
+"config.algo_label" = "asym-a2c-vhs"
+"config.wandb_metagroup_optim" = "(2,0.001,0.001,10)"
+"config.wandb_metagroup_negentropy" = "(0.1,0.01,1_000_000)"	
+
+[[filters."$or"]]
+"config.algo_label" = "asym-a2c-vhz-hh-heaven"
+"config.wandb_metagroup_optim" = "(2,0.0003,0.0003,10)"
+"config.wandb_metagroup_negentropy" = "(0.1,0.01,1_000_000)"
+
+[[filters."$or"]]
+"config.algo_label" = "asym-a2c-vhz-hh-position"
+"config.wandb_metagroup_optim" = "(2,0.0003,0.0003,10)"
+"config.wandb_metagroup_negentropy" = "(1.0,0.1,2_000_000)"
+
+[[filters."$or"]]
+"config.algo_label" = "noisy-a2c"
+"config.wandb_metagroup_optim" = "(2,0.0003,0.0003,10)"
+"config.wandb_metagroup_negentropy" = "(0.1,0.01,3_000_000)"
+
+[[filters."$or"]]
+"config.algo_label" = "asym-a2c-vh->vhs"
+"config.wandb_metagroup_optim" = "(2,0.001,0.001,10)"
+"config.wandb_metagroup_negentropy" = "(0.1,0.01,2_000_000)"
+
+[[filters."$or"]]
+"config.algo_label" = "asym-a2c-vhs->vh"
+"config.wandb_metagroup_optim" = "(2,0.0003,0.0003,10)"
+"config.wandb_metagroup_negentropy" = "(0.1,0.01,1_000_000)"
+
+# [[filters."$or"]]
+# "config.algo_label" = "asym-a2c-vh->vs"
+# # "config.wandb_metagroup_optim" = "(2,0.001,0.001,10)"
+# # "config.wandb_metagroup_negentropy" = "(0.1,0.01,2_000_000)"
+
+# [[filters."$or"]]
+# "config.algo_label" = "asym-a2c-vh->vhz-hh-heaven"
+# # "config.wandb_metagroup_optim" = "(2,0.001,0.001,10)"
+# # "config.wandb_metagroup_negentropy" = "(0.1,0.01,2_000_000)"
+
+[keys.run]
+x = "runstate.xstats.simulation_timesteps"
+y = "performance/behavior_mean_return"
+# y = "performance/avg100_behavior_mean_return"
+task = "Task"
+group = "Algorithm"
+unit = "ID"
+
+[keys.data]
+x = "Timestep"
+y = "Return"
+task = "Task"
+group = "Algorithm"
+unit = "ID"
+
+[standardize.kwargs]
+xmin=0
+xmax=10_000_000
+num=100
+window_size=1_000_000

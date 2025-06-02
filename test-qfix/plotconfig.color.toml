@@ -1,0 +1,12 @@
+palette = "muted"
+
+[indices]
+"Q+FIX-sum" = 0
+"Q+FIX-mono" = 1
+"Q+FIX-lin" = 2
+"QPLEX" = 3
+"QMIX" = 4
+"VDN" = 5
+"IQL" = 6
+"QMIX-big" = 6
+"Q+FIX-mono-small" = 7

@@ -1,0 +1,38 @@
+project = "nu-llpr/qfix"
+
+[filters]
+"config.env_args.map_name"."$in" = ["10gen_protoss", "10gen_terran", "10gen_zerg"]
+"$or" = [
+  {"config.env_args.capability_config.n_units" = 5, "config.env_args.capability_config.n_enemies" = 5},
+  {"config.env_args.capability_config.n_units" = 10, "config.env_args.capability_config.n_enemies" = 10},
+  {"config.env_args.capability_config.n_units" = 20, "config.env_args.capability_config.n_enemies" = 20}
+]
+"config.name"."$in" = ["vdn", "qmix", "qplex", "q+fix_sum_detach", "q+fix_mono_detach", "q+fix_lin_detach"]
+
+[keys.run]
+x = "train/step"
+y = "test/return_mean"
+task = "Task"
+group = "Model"
+unit = "ID"
+
+[keys.data]
+x = "Timestep"
+y = "Return"
+task = "Task"
+group = "Model"
+unit = "ID"
+
+[standardize.kwargs]
+xmin=0
+xmax=10_000_000
+num=100
+window_size=200_000
+
+[relabel]
+"vdn" = "VDN"
+"qmix" = "QMIX"
+"qplex" = "QPLEX"
+"q+fix_sum_detach" = "Q+FIX-sum"
+"q+fix_mono_detach" = "Q+FIX-mono"
+"q+fix_lin_detach" = "Q+FIX-lin"

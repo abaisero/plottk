@@ -1,0 +1,5 @@
+row="units"
+col="race"
+
+order.row = ["5vs5", "10vs10"]
+order.col = ["Protoss", "Terran", "Zerg"]

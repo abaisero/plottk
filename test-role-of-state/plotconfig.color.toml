@@ -1,0 +1,10 @@
+palette = "muted"
+
+[indices]
+"a2c" = 0
+"asym-a2c-vhz-hh-heaven" = 1
+"asym-a2c-vhs" = 2
+"asym-a2c-vhz-hh-position" = 3
+"noisy-a2c" = 4
+"asym-a2c-vh->vhs" = 5
+"asym-a2c-vhs->vh" = 6

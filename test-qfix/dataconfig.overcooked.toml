@@ -1,0 +1,35 @@
+project = "nu-llpr/qfix-jaxmarl"
+
+[filters]
+"config.WANDB_LABEL" = "neurips"
+"config.ENV_NAME" = "overcooked"
+"config.ENV_KWARGS.layout"."$in" = ["cramped_room", "asymm_advantages", "coord_ring", "forced_coord", "counter_circuit"]
+"config.ALG_NAME"."$in" = ["iql", "vdn", "qmix", "q+fix-sum", "q+fix-mono", "q+fix-lin"]
+
+[keys.run]
+x = "env_step"
+y = "returned_episode_returns"
+task = "Task"
+group = "Model"
+unit = "ID"
+
+[keys.data]
+x = "Timestep"
+y = "Return"
+task = "Task"
+group = "Model"
+unit = "ID"
+
+[standardize.kwargs]
+xmin=0
+xmax=5_000_000
+num=100
+window_size=100_000
+
+[relabel]
+"iql" = "IQL"
+"vdn" = "VDN"
+"qmix" = "QMIX"
+"q+fix-sum" = "Q+FIX-sum"
+"q+fix-mono" = "Q+FIX-mono"
+"q+fix-lin" = "Q+FIX-lin"

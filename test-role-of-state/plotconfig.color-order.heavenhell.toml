@@ -1,0 +1,9 @@
+order = [
+  "a2c",
+  "asym-a2c-vhs",
+  "asym-a2c-vhz-hh-heaven",
+  "asym-a2c-vhz-hh-position",
+  "asym-a2c-vh->vhs",
+  "asym-a2c-vhs->vh",
+  "noisy-a2c",
+]

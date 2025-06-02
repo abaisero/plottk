@@ -1,0 +1,1 @@
+order = ["Q+FIX-sum", "Q+FIX-mono", "Q+FIX-lin", "QMIX", "VDN", "IQL"]
